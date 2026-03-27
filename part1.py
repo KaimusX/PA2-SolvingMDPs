@@ -98,3 +98,34 @@ def value_of_action(state, action, V, P, gamma):
     for prob, next_state, reward in P[state][action]:
         total += prob * (reward + gamma * V[next_state])
     return total
+
+#Call value_of_action for every action in a state
+#Takes the max across all actions
+def value_iteration(states, actions, P, V, gamma, threshold):
+    iteration = 0
+
+    while True:
+        delta = 0
+        iteration += 1
+        #TODO print iteration header
+
+        for s in states:
+            if not actions[s]:
+                continue
+        prev_v = V[s]
+        action_values = {}
+
+        for a in actions[s]:
+            action_values[a] = value_of_action(s, a, V, P, gamma)
+
+        best_action = max(action_values, key=action_values.get)
+        best_val = action_values[best_action]
+
+        #TODO: add print statements
+
+        delta = max(delta, abs(best_val - prev_v))
+            V[s] = best_val
+        if delta < threshold:
+            print(f"\n*** Converged after {iteration} iterations ***")
+            break
+        return V
