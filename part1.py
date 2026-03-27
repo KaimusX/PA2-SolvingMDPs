@@ -17,3 +17,33 @@ actions = {
     "TD10a": ["P", "R", "S"],
     "11aFin": []
 }
+
+# Transitions. syntax: [(probablitty, next state, reward)...]
+P = {
+    #level 0 states
+    "RU8p": {
+        "P": [(1.0, "TU10p", 2)],
+        "R": [(1.0, "RU10p", 0)],
+        "S": [(1.0, "RD10p", -1)]
+    },
+    # level 1 states
+    "TU10p": {
+        "P": [(1.0, "RU10a", 2)],
+        "R": [(1.0, "RU8a", 0)]
+    },
+    "RU10p": {
+        "R": [(1.0, "RU8a", 0)],
+        "P": [(0.5, "RU8a",2), (0.5, "RU10a", 2)],
+        "S": [(1.0, "RD8a", -1)]
+    },
+    "RD10p": {
+        "R": [(1.0, "RD8a", 0)],
+        "P": [(0.5, "RD8a", 2), (0.5, "RD10a", 2)]
+    },
+    # level 2 states
+    
+    # level 3 states
+    
+    # level 4 state, terminal
+    "11aFin": {}
+}
