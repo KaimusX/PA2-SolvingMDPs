@@ -89,6 +89,9 @@ gamma = 0.99
 # max change of value in any state for a single iteration threshold
 threshold = 0.001
 
+# policy table storing best action for each state
+policy = {s: None for s in states}
+
 # Bellman equation, NOTE: does not have max over actions yet.
 def value_of_action(state, action, V, P, gamma):
     total = 0.0
