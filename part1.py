@@ -86,6 +86,9 @@ V = {s: 0.0 for s in states}
 # discount factor
 gamma = 0.99
 
+# max change of value in any state for a single iteration threshold
+threshold = 0.001
+
 # Bellman equation, NOTE: does not have max over actions yet.
 def value_of_action(state, action, V, P, gamma):
     total = 0.0
