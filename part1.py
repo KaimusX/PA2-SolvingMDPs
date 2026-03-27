@@ -131,7 +131,7 @@ def value_iteration(states, actions, P, V, gamma, threshold):
             print(f"\nState: {s}")
             print(f"Previous V: {prev_v:.4f} | New V: {best_val:.4f}")
             for a, v in action_values.items():
-                print(f"Value of action Q({s},{a}) = {v:.4f}")
+                print(f"Estimated value of action {a} in state {s} = {v:.4f}")
             print(f"Best Action: {best_action}")
 
             delta = max(delta, abs(best_val - prev_v))
@@ -152,3 +152,12 @@ def value_iteration(states, actions, P, V, gamma, threshold):
     return V, policy
 
 # call function
+V, policy = value_iteration(states, actions, P, V, gamma, threshold)
+
+print("\nFinal Values:")
+for s in states:
+    print(f"{s}: {V[s]:.4f}")
+
+print("\nOptimal Policy:")
+for s in states:
+    print(f"{s}: {policy[s]}")
