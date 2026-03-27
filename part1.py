@@ -45,9 +45,26 @@ P = {
         "P": [(0.5, "RD8a", 2), (0.5, "RD10a", 2)]
     },
     # level 2 states
+    "RU8a": {
+        "P":[(1.0,"TU10a",2)]
+        "R":[(1.0,"RU10a",0)]
+        "S":[(1.0,"RD10a",-1)]
+    "RD8a":{
+        "R":[(1,"RD10a",0)]
+        "P":[(1,"TD10a",2)]
     
-    # level 3 states NOTE: for 'any' we should write out each state instead.
+    # level 3 states
+    "TU10a":{
+        "any": [(1.0,"11aFin",-1)]
 
+    "RU10a":{
+        "any":[1.0,"11aFin",0]
+        
+    "RD10a":{
+        "any":[(1.0,"11aFin",4)]
+
+    "TD10a":{
+        "any":[(1.0,"11aFin",3)]
     # level 4 state, terminal
     "11aFin": {}
 }
