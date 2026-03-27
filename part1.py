@@ -107,7 +107,7 @@ def value_iteration(states, actions, P, V, gamma, threshold):
     while True:
         delta = 0
         iteration += 1
-        #TODO print iteration header
+        print(f"\n *** Iteration: {iteration} ***")
 
         for s in states:
             if not actions[s]:
@@ -121,10 +121,14 @@ def value_iteration(states, actions, P, V, gamma, threshold):
         best_action = max(action_values, key=action_values.get)
         best_val = action_values[best_action]
 
-        #TODO: add print statements
+        print(f"\n State: {s}")
+        print(f"\n Previous V: {prev_v} | New V: {best_val}")
+        for a , v in action_values.items():
+            print(f" Q({s},{a}) = {v}")
+        print(f" Best Action: {best_action}")
 
         delta = max(delta, abs(best_val - prev_v))
-            V[s] = best_val
+        V[s] = best_val
         if delta < threshold:
             print(f"\n*** Converged after {iteration} iterations ***")
             break
