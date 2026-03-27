@@ -1,3 +1,7 @@
+# part1 PA2
+# authors: Luis Franco and Diego de Leon
+# IDs: 80677301(LUIS) and 80754838(DIEGO)
+
 # Defining MDP
 
 # Possible states
@@ -42,8 +46,21 @@ P = {
     },
     # level 2 states
     
-    # level 3 states
-    
+    # level 3 states NOTE: for 'any' we should write out each state instead.
+
     # level 4 state, terminal
     "11aFin": {}
 }
+
+# Initialize value estimates to zilch 0
+V = {s: 0.0 for s in states}
+
+# discount factor
+gamma = 0.99
+
+# Bellman equation, NOTE: does not have max over actions yet.
+def value_of_action(state, action, V, P, gamma):
+    total = 0.0
+    for prob, next_state, reward in P[state][action]:
+        total += prob * (reward + gamma * V[next_state])
+    return total
