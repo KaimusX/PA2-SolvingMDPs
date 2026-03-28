@@ -2,6 +2,8 @@
 # authors: Luis Franco and Diego de Leon
 # IDs: 80677301(LUIS) and 80754838(DIEGO)
 
+import random
+
 # Defining MDP
 
 # Possible states
@@ -94,3 +96,16 @@ for s in states:
     Q[s] = {}
     for a in actions[s]:
         Q[s][a] = 0.0
+
+# pick an outcome from P[s][a] from probablities
+def simulate_transition(state, action, P):
+    # Get all possible outcomes
+    outcomes = P[state][action]
+    # rand between 0-1
+    r = random.random()
+    cumulative = 0.0
+
+    for prob, next_state, reward in outcomes:
+        cumulative += prob
+        if r<= cumulative:
+            return next_state, reward
