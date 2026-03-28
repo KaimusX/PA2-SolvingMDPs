@@ -124,6 +124,21 @@ def choose_action(state, actions, Q, epsilon):
     else: # else get max q from the equation
         return max(Q[state], key=Q[state].get)
 
+# Visit counter to prevent premature convergence
+visits = {}
+for s in states:
+    visits[s] = {}
+    for a in actions[s]:
+        visits[s][a] = 0
+
+# Check for minimum visits
+def enough_visits(visits, actions, min_visits=3):
+    for s in actions:
+        for a in actions[s]:
+            if visits[s][a] < min_visits:
+                return False
+    return True
+
 def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
     episode = 0
 
