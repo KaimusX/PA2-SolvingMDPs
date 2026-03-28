@@ -1,0 +1,383 @@
+
+*** Iteration: 1 ***
+
+State: RU8p
+Previous V: 0.0000 | New V: 2.0000
+Estimated value of action P in state RU8p = 2.0000
+Estimated value of action R in state RU8p = 0.0000
+Estimated value of action S in state RU8p = -1.0000
+Best Action: P
+
+State: TU10p
+Previous V: 0.0000 | New V: 2.0000
+Estimated value of action P in state TU10p = 2.0000
+Estimated value of action R in state TU10p = 0.0000
+Best Action: P
+
+State: RU10p
+Previous V: 0.0000 | New V: 2.0000
+Estimated value of action R in state RU10p = 0.0000
+Estimated value of action P in state RU10p = 2.0000
+Estimated value of action S in state RU10p = -1.0000
+Best Action: P
+
+State: RD10p
+Previous V: 0.0000 | New V: 2.0000
+Estimated value of action R in state RD10p = 0.0000
+Estimated value of action P in state RD10p = 2.0000
+Best Action: P
+
+State: RU8a
+Previous V: 0.0000 | New V: 2.0000
+Estimated value of action P in state RU8a = 2.0000
+Estimated value of action R in state RU8a = 0.0000
+Estimated value of action S in state RU8a = -1.0000
+Best Action: P
+
+State: RD8a
+Previous V: 0.0000 | New V: 2.0000
+Estimated value of action R in state RD8a = 0.0000
+Estimated value of action P in state RD8a = 2.0000
+Best Action: P
+
+State: TU10a
+Previous V: 0.0000 | New V: -1.0000
+Estimated value of action P in state TU10a = -1.0000
+Estimated value of action R in state TU10a = -1.0000
+Estimated value of action S in state TU10a = -1.0000
+Best Action: P
+
+State: RU10a
+Previous V: 0.0000 | New V: 0.0000
+Estimated value of action P in state RU10a = 0.0000
+Estimated value of action R in state RU10a = 0.0000
+Estimated value of action S in state RU10a = 0.0000
+Best Action: P
+
+State: RD10a
+Previous V: 0.0000 | New V: 4.0000
+Estimated value of action P in state RD10a = 4.0000
+Estimated value of action R in state RD10a = 4.0000
+Estimated value of action S in state RD10a = 4.0000
+Best Action: P
+
+State: TD10a
+Previous V: 0.0000 | New V: 3.0000
+Estimated value of action P in state TD10a = 3.0000
+Estimated value of action R in state TD10a = 3.0000
+Estimated value of action S in state TD10a = 3.0000
+Best Action: P
+
+Maximum change this iteration: 4.000000
+
+*** Iteration: 2 ***
+
+State: RU8p
+Previous V: 2.0000 | New V: 3.9800
+Estimated value of action P in state RU8p = 3.9800
+Estimated value of action R in state RU8p = 1.9800
+Estimated value of action S in state RU8p = 0.9800
+Best Action: P
+
+State: TU10p
+Previous V: 2.0000 | New V: 2.0000
+Estimated value of action P in state TU10p = 2.0000
+Estimated value of action R in state TU10p = 1.9800
+Best Action: P
+
+State: RU10p
+Previous V: 2.0000 | New V: 2.9900
+Estimated value of action R in state RU10p = 1.9800
+Estimated value of action P in state RU10p = 2.9900
+Estimated value of action S in state RU10p = 0.9800
+Best Action: P
+
+State: RD10p
+Previous V: 2.0000 | New V: 4.9700
+Estimated value of action R in state RD10p = 1.9800
+Estimated value of action P in state RD10p = 4.9700
+Best Action: P
+
+State: RU8a
+Previous V: 2.0000 | New V: 2.9600
+Estimated value of action P in state RU8a = 1.0100
+Estimated value of action R in state RU8a = 0.0000
+Estimated value of action S in state RU8a = 2.9600
+Best Action: S
+
+State: RD8a
+Previous V: 2.0000 | New V: 4.9700
+Estimated value of action R in state RD8a = 3.9600
+Estimated value of action P in state RD8a = 4.9700
+Best Action: P
+
+State: TU10a
+Previous V: -1.0000 | New V: -1.0000
+Estimated value of action P in state TU10a = -1.0000
+Estimated value of action R in state TU10a = -1.0000
+Estimated value of action S in state TU10a = -1.0000
+Best Action: P
+
+State: RU10a
+Previous V: 0.0000 | New V: 0.0000
+Estimated value of action P in state RU10a = 0.0000
+Estimated value of action R in state RU10a = 0.0000
+Estimated value of action S in state RU10a = 0.0000
+Best Action: P
+
+State: RD10a
+Previous V: 4.0000 | New V: 4.0000
+Estimated value of action P in state RD10a = 4.0000
+Estimated value of action R in state RD10a = 4.0000
+Estimated value of action S in state RD10a = 4.0000
+Best Action: P
+
+State: TD10a
+Previous V: 3.0000 | New V: 3.0000
+Estimated value of action P in state TD10a = 3.0000
+Estimated value of action R in state TD10a = 3.0000
+Estimated value of action S in state TD10a = 3.0000
+Best Action: P
+
+Maximum change this iteration: 2.970000
+
+*** Iteration: 3 ***
+
+State: RU8p
+Previous V: 3.9800 | New V: 3.9800
+Estimated value of action P in state RU8p = 3.9800
+Estimated value of action R in state RU8p = 2.9601
+Estimated value of action S in state RU8p = 3.9203
+Best Action: P
+
+State: TU10p
+Previous V: 2.0000 | New V: 2.9304
+Estimated value of action P in state TU10p = 2.0000
+Estimated value of action R in state TU10p = 2.9304
+Best Action: R
+
+State: RU10p
+Previous V: 2.9900 | New V: 3.9203
+Estimated value of action R in state RU10p = 2.9304
+Estimated value of action P in state RU10p = 3.4652
+Estimated value of action S in state RU10p = 3.9203
+Best Action: S
+
+State: RD10p
+Previous V: 4.9700 | New V: 6.4402
+Estimated value of action R in state RD10p = 4.9203
+Estimated value of action P in state RD10p = 6.4402
+Best Action: P
+
+State: RU8a
+Previous V: 2.9600 | New V: 2.9600
+Estimated value of action P in state RU8a = 1.0100
+Estimated value of action R in state RU8a = 0.0000
+Estimated value of action S in state RU8a = 2.9600
+Best Action: S
+
+State: RD8a
+Previous V: 4.9700 | New V: 4.9700
+Estimated value of action R in state RD8a = 3.9600
+Estimated value of action P in state RD8a = 4.9700
+Best Action: P
+
+State: TU10a
+Previous V: -1.0000 | New V: -1.0000
+Estimated value of action P in state TU10a = -1.0000
+Estimated value of action R in state TU10a = -1.0000
+Estimated value of action S in state TU10a = -1.0000
+Best Action: P
+
+State: RU10a
+Previous V: 0.0000 | New V: 0.0000
+Estimated value of action P in state RU10a = 0.0000
+Estimated value of action R in state RU10a = 0.0000
+Estimated value of action S in state RU10a = 0.0000
+Best Action: P
+
+State: RD10a
+Previous V: 4.0000 | New V: 4.0000
+Estimated value of action P in state RD10a = 4.0000
+Estimated value of action R in state RD10a = 4.0000
+Estimated value of action S in state RD10a = 4.0000
+Best Action: P
+
+State: TD10a
+Previous V: 3.0000 | New V: 3.0000
+Estimated value of action P in state TD10a = 3.0000
+Estimated value of action R in state TD10a = 3.0000
+Estimated value of action S in state TD10a = 3.0000
+Best Action: P
+
+Maximum change this iteration: 1.470150
+
+*** Iteration: 4 ***
+
+State: RU8p
+Previous V: 3.9800 | New V: 5.3757
+Estimated value of action P in state RU8p = 4.9011
+Estimated value of action R in state RU8p = 3.8811
+Estimated value of action S in state RU8p = 5.3757
+Best Action: S
+
+State: TU10p
+Previous V: 2.9304 | New V: 2.9304
+Estimated value of action P in state TU10p = 2.0000
+Estimated value of action R in state TU10p = 2.9304
+Best Action: R
+
+State: RU10p
+Previous V: 3.9203 | New V: 3.9203
+Estimated value of action R in state RU10p = 2.9304
+Estimated value of action P in state RU10p = 3.4652
+Estimated value of action S in state RU10p = 3.9203
+Best Action: S
+
+State: RD10p
+Previous V: 6.4402 | New V: 6.4402
+Estimated value of action R in state RD10p = 4.9203
+Estimated value of action P in state RD10p = 6.4402
+Best Action: P
+
+State: RU8a
+Previous V: 2.9600 | New V: 2.9600
+Estimated value of action P in state RU8a = 1.0100
+Estimated value of action R in state RU8a = 0.0000
+Estimated value of action S in state RU8a = 2.9600
+Best Action: S
+
+State: RD8a
+Previous V: 4.9700 | New V: 4.9700
+Estimated value of action R in state RD8a = 3.9600
+Estimated value of action P in state RD8a = 4.9700
+Best Action: P
+
+State: TU10a
+Previous V: -1.0000 | New V: -1.0000
+Estimated value of action P in state TU10a = -1.0000
+Estimated value of action R in state TU10a = -1.0000
+Estimated value of action S in state TU10a = -1.0000
+Best Action: P
+
+State: RU10a
+Previous V: 0.0000 | New V: 0.0000
+Estimated value of action P in state RU10a = 0.0000
+Estimated value of action R in state RU10a = 0.0000
+Estimated value of action S in state RU10a = 0.0000
+Best Action: P
+
+State: RD10a
+Previous V: 4.0000 | New V: 4.0000
+Estimated value of action P in state RD10a = 4.0000
+Estimated value of action R in state RD10a = 4.0000
+Estimated value of action S in state RD10a = 4.0000
+Best Action: P
+
+State: TD10a
+Previous V: 3.0000 | New V: 3.0000
+Estimated value of action P in state TD10a = 3.0000
+Estimated value of action R in state TD10a = 3.0000
+Estimated value of action S in state TD10a = 3.0000
+Best Action: P
+
+Maximum change this iteration: 1.395749
+
+*** Iteration: 5 ***
+
+State: RU8p
+Previous V: 5.3757 | New V: 5.3757
+Estimated value of action P in state RU8p = 4.9011
+Estimated value of action R in state RU8p = 3.8811
+Estimated value of action S in state RU8p = 5.3757
+Best Action: S
+
+State: TU10p
+Previous V: 2.9304 | New V: 2.9304
+Estimated value of action P in state TU10p = 2.0000
+Estimated value of action R in state TU10p = 2.9304
+Best Action: R
+
+State: RU10p
+Previous V: 3.9203 | New V: 3.9203
+Estimated value of action R in state RU10p = 2.9304
+Estimated value of action P in state RU10p = 3.4652
+Estimated value of action S in state RU10p = 3.9203
+Best Action: S
+
+State: RD10p
+Previous V: 6.4402 | New V: 6.4402
+Estimated value of action R in state RD10p = 4.9203
+Estimated value of action P in state RD10p = 6.4402
+Best Action: P
+
+State: RU8a
+Previous V: 2.9600 | New V: 2.9600
+Estimated value of action P in state RU8a = 1.0100
+Estimated value of action R in state RU8a = 0.0000
+Estimated value of action S in state RU8a = 2.9600
+Best Action: S
+
+State: RD8a
+Previous V: 4.9700 | New V: 4.9700
+Estimated value of action R in state RD8a = 3.9600
+Estimated value of action P in state RD8a = 4.9700
+Best Action: P
+
+State: TU10a
+Previous V: -1.0000 | New V: -1.0000
+Estimated value of action P in state TU10a = -1.0000
+Estimated value of action R in state TU10a = -1.0000
+Estimated value of action S in state TU10a = -1.0000
+Best Action: P
+
+State: RU10a
+Previous V: 0.0000 | New V: 0.0000
+Estimated value of action P in state RU10a = 0.0000
+Estimated value of action R in state RU10a = 0.0000
+Estimated value of action S in state RU10a = 0.0000
+Best Action: P
+
+State: RD10a
+Previous V: 4.0000 | New V: 4.0000
+Estimated value of action P in state RD10a = 4.0000
+Estimated value of action R in state RD10a = 4.0000
+Estimated value of action S in state RD10a = 4.0000
+Best Action: P
+
+State: TD10a
+Previous V: 3.0000 | New V: 3.0000
+Estimated value of action P in state TD10a = 3.0000
+Estimated value of action R in state TD10a = 3.0000
+Estimated value of action S in state TD10a = 3.0000
+Best Action: P
+
+Maximum change this iteration: 0.000000
+
+*** Converged after 5 iterations ***
+
+Final Values:
+RU8p: 5.3757
+TU10p: 2.9304
+RU10p: 3.9203
+RD10p: 6.4402
+RU8a: 2.9600
+RD8a: 4.9700
+TU10a: -1.0000
+RU10a: 0.0000
+RD10a: 4.0000
+TD10a: 3.0000
+11aFin: 0.0000
+
+Optimal Policy:
+RU8p: S
+TU10p: R
+RU10p: S
+RD10p: P
+RU8a: S
+RD8a: P
+TU10a: P
+RU10a: P
+RD10a: P
+TD10a: P
+11aFin: None
