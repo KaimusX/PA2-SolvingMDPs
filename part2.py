@@ -160,7 +160,7 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
         max_change = max(max_change, abs(Q[state][action] - old_q))
         state = next_state
 
-    if max_change < threshold
+    if max_change < threshold:
         print(f"\n*** Converged after {episode} episodes ***")
         break
 return Q
