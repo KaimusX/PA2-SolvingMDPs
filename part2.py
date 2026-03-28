@@ -160,17 +160,17 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
         max_change = max(max_change, abs(Q[state][action] - old_q))
         state = next_state
 
-    if max_change < threshold:
-        print(f"\n*** Converged after {episode} episodes ***")
-        break
-return Q
+        if max_change < threshold:
+            print(f"\n*** Converged after {episode} episodes ***")
+            break
+    return Q
 
 #Run alg
 Q = q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold)
 
 print(f"*** Final Q-Values ***")
 for s in states:
-    for a in action[s]:
+    for a in actions[s]:
         print(f" Q({s},{a}) = {Q[s][a]:.4f}")
 
 print("\n=== Optimal Policy ===")
