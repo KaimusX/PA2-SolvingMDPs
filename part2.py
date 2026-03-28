@@ -85,3 +85,12 @@ lambdaDR = 0.99
 
 # epsilon greedy 80% best, 20% random
 epsilon = 0.2
+
+start_state = "RU8p"
+
+# init Q(s,a) values to 0
+Q = {}
+for s in states:
+    Q[s] = {}
+    for a in actions[s]:
+        Q[s][a] = 0.0
