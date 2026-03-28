@@ -97,7 +97,7 @@ for s in states:
     for a in actions[s]:
         Q[s][a] = 0.0
 
-# pick an outcome from P[s][a] from probablities
+# pick an outcome for next state P[s][a] from probablity map
 def simulate_transition(state, action, P):
     # Get all possible outcomes
     outcomes = P[state][action]
@@ -109,3 +109,18 @@ def simulate_transition(state, action, P):
         cumulative += prob
         if r<= cumulative:
             return next_state, reward
+        
+# Epsilon gredy action choice
+def choose_action(state, actions, Q, epsilon):
+    available_actions = actions[state]
+
+    #terminal
+    if not available_actions:
+        return None
+    
+    # get num between 0 and 1, 20% of time do random action
+    if random.random() < epsilon:
+        return random.choice(available_actions)
+    else: # else get max q from the equation
+        return max(Q[state], key=Q[state].get)
+    
