@@ -131,54 +131,53 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
         max_change = 0
         episode += 1
         print(f"\n*** Episode {episode} ***")
-        
         #start each episode at start state
         state = start_state
+        #choose action using epsilon greedy
+        
         while state != "11aFin":
-            #choose action using epsilon greedy
-            action = choose_action(state,actions,Q,epsilon)
-
-        #simulate transition
+            action = choose_action(state, actions, Q, epsilon)
+            #simulate transition
             next_state, reward = simulate_transition(state, action, P)
 
-        #get max Q value of next state (0 if terminal)
-        if actions[next_state]:
-            max_q_next = max(Q[next_state].values())
-        else:
-            max_q_next = 0.0
+            #get max Q-value of next state(o if terminal)
+            if actions[next_state]:
+                max_q_next = max(Q[next_state].values())
+            else:
+                max_q_next = 0.0
+                
+            #store old Q-value for printing and delta
+            old_q = Q[state][action]
+            #Q-learning update
+            Q[state][action] = old_q + alpha * (reward + lambdaDR * max_q_next - old_q)
 
-        #store old Q value for printing and delta
-        old_q =  Q[state][action]
-        #Q-learning update
-        Q[state][action] = old_q + alpha *(reward + lambdaDR * max_q_next - old_q)
+            print(f"  State: {state}, Action: {action}")
+            print(f"  Prev Q: {old_q:.4f} | New Q: {Q[state][action]:.4f}")
+            print(f"  Reward: {reward} | Max Q(next): {max_q_next:.4f}")
 
-        print(f" State: {state}, Action: {action} ")
-        print(f" Prev Q: {old_q:.4f} | New Q: {Q[state][action]:.4f}")
-        print(f"  Reward: {reward} | Max Q(next): {max_q_next:.4f}")
-
-        #track biggest Q-value change this episode
-        max_change = max(max_change, abs(Q[state][action] - old_q))
-        state = next_state
+            #track biggest Q-value change this episode
+            max_change = max(max_change, abs(Q[state][action] - old_q))
+            state = next_state
 
         if max_change < threshold:
             print(f"\n*** Converged after {episode} episodes ***")
             break
+
     return Q
 
-#Run alg
+# Run it
 Q = q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold)
 
-print(f"*** Final Q-Values ***")
+print("\n*** Final Q-Values ***")
 for s in states:
     for a in actions[s]:
-        print(f" Q({s},{a}) = {Q[s][a]:.4f}")
+        print(f"  Q({s},{a}) = {Q[s][a]:.4f}")
 
-print("\n=== Optimal Policy ===")
+print("\n*** Optimal Policy ***")
 for s in states:
     if actions[s]:
         best = max(Q[s], key=Q[s].get)
         print(f"  {s}: {best}")
     else:
         print(f"  {s}: Terminal")
-        
         
