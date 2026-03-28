@@ -185,7 +185,7 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
         else:
             stable_count = 0
 
-        if stable_count >= required_stable_episodes and enough_visits(visits, actions, min_visits=3):
+        if stable_count >= required_stable_episodes and enough_visits(visits, actions, min_visits=1):
             print(f"\n *** Converged after {episode} episodes ***")
             break
 
