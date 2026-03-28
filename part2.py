@@ -73,3 +73,15 @@ P = {
     },
     "11aFin": {}
 }
+
+# threshold
+threshold = 0.001
+
+# learning rate
+alpha = 0.1
+
+#discount factor
+lambdaDR = 0.99
+
+# epsilon greedy 80% best, 20% random
+epsilon = 0.2
