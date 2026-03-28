@@ -142,6 +142,10 @@ def enough_visits(visits, actions, min_visits=3):
 def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
     episode = 0
 
+    # to prevent premature convergence
+    stable_count = 0
+    required_stable_episodes = 3
+    
     while True:
         max_change = 0
         episode += 1
@@ -165,6 +169,7 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
             old_q = Q[state][action]
             #Q-learning update
             Q[state][action] = old_q + alpha * (reward + lambdaDR * max_q_next - old_q)
+            visits[state][action] += 1 #increment visit
 
             print(f"  State: {state}, Action: {action}")
             print(f"  Prev Q: {old_q:.4f} | New Q: {Q[state][action]:.4f}")
@@ -174,8 +179,14 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
             max_change = max(max_change, abs(Q[state][action] - old_q))
             state = next_state
 
+        # if small updates, is stable
         if max_change < threshold:
-            print(f"\n*** Converged after {episode} episodes ***")
+            stable_count += 1
+        else:
+            stable_count = 0
+
+        if stable_count >= required_stable_episodes and enough_visits(visits, actions, min_visits=3):
+            print(f"\n *** Converged after {episode} episodes ***")
             break
 
     return Q
