@@ -129,7 +129,7 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
 
     while True:
         max_change = 0
-        episode += 
+        episode += 1
         print(f"\n*** Episode {episode} ***")
         
         #start each episode at start state
