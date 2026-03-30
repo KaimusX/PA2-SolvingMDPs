@@ -6,7 +6,7 @@ import random
 
 # Defining MDP TODO
 
-# Possible states TODO
+# Possible states 
 # Terminal state
 terminal_state = "TERMINAL"
 
@@ -31,7 +31,35 @@ states.append(terminal_state)
 
 
 
-# Possible actions from each state. TODO
+# Possible actions from each state.
+# for each host we only allow sc bf or me if host is not compromised ot prevent wasting actions
+
+actions = {}
+
+for state in states:
+    # Term state
+    if state == terminal_state:
+        actions[state] = []
+        continue
+    c1, k1, c2, k2, c3, k3 = state
+    
+    available = []
+
+    available.append("END")
+
+    #host 1 actions
+    if c1 == 0:
+        available.extend(["SC1", "BF1", "ME1"])
+
+    # host 2 actions
+    if c2 == 0:
+        available.extend(["SC2", "BF2", "ME2"])
+
+    # host 3 actions
+    if c3 == 0:
+        available.extend(["SC3", "BF3", "ME3"])
+
+    actions[state] = available
 
 # Transitions. syntax: [(probability, next state, reward), ...] TODO
 
