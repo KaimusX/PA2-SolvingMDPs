@@ -12,9 +12,12 @@ terminal_state = "TERMINAL"
 
 # Initial state:
 # (c1, k1, c2, k2, c3, k3)
+# c1 = binary, state 1 compromised?
+# k1 = binary, state 1 ME vulnerability known?
+
 start_state = (0, 0, 0, 0, 0, 0) # no known no compromised
 
-# Generate all possible states
+# Generate state space
 states = []
 for c1 in [0, 1]:
     for k1 in [0, 1]:
