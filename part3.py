@@ -7,6 +7,26 @@ import random
 # Defining MDP TODO
 
 # Possible states TODO
+# Terminal state
+terminal_state = "TERMINAL"
+
+# Initial state:
+# (c1, k1, c2, k2, c3, k3)
+start_state = (0, 0, 0, 0, 0, 0) # no known no compromised
+
+# Generate all possible states
+states = []
+for c1 in [0, 1]:
+    for k1 in [0, 1]:
+        for c2 in [0, 1]:
+            for k2 in [0, 1]:
+                for c3 in [0, 1]:
+                    for k3 in [0, 1]:
+                        states.append((c1, k1, c2, k2, c3, k3))
+
+states.append(terminal_state)
+
+
 
 # Possible actions from each state. TODO
 
@@ -90,7 +110,7 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
         state = start_state
         #choose action using epsilon greedy
         
-        while state != "11aFin":
+        while state != terminal_state:
             action = choose_action(state, actions, Q, epsilon)
             #simulate transition
             next_state, reward = simulate_transition(state, action, P)
