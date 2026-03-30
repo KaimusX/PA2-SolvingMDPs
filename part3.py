@@ -62,7 +62,66 @@ for state in states:
     actions[state] = available
 
 # Transitions. syntax: [(probability, next state, reward), ...] TODO
+#host info
+hosts = {
+    1: {"value": 20, "penalty": -10, "p_BF": 0.90, "p_ME": 0.70},
+    2: {"value": 30, "penalty": -15, "p_BF": 0.25, "p_ME": 0.50},
+    3: {"value": 45, "penalty": -25, "p_BF": 0.10, "p_ME": 0.30}
+}
+#Action Costs
+cost = {"SC": 5, "BF": 10, "ME": 5}
 
+#Build Transitions
+P = {}
+for state in states:
+    #if terminal state, no transition
+    if state == terminal_state:
+        P[state] = {}
+        continue
+
+    c1, k1, c2, k2, c3, k3 = state
+    #group each host's (compromised,known) status together for easy access
+    host_vals = [(c1, k1), (c2, k2), (c3, k3)]
+    P[state] = {}
+
+    # END action: goes to terminal state w/no reward
+    P[state]["END"] = [(1.0, terminal_state, 0)]
+
+    #get each host's status (compromised,known) and information(value, penalty, and attack prob.)
+    for i in range(1, 4):
+        c, k = host_vals[i-1]
+        h = hosts[i]
+        if c == 1:
+            continue
+            
+        #returns a new state with host i's updated c and k
+        def next_s(state, i, new_c, new_k):
+            s = list(state)
+            s[(i-1)*2] = new_c
+            s[(i-1)*2 + 1] = new_k
+            return tuple(s)
+
+        # SC action: sets k = 1 and costs 5
+        P[state][f"SC{i}"] = [
+            (1.0, next_s(state, i, 0, 1), -cost["SC"])
+        ]
+
+        # BF action: succeeds with p_BF, costs 10
+        #success: host is compromised, get value - cost
+        #failure: state unchanged, get penalty - cost
+        p_bf = h["p_BF"]
+        P[state][f"BF{i}"] = [
+            (p_bf,   next_s(state, i, 1, k), h["value"] - cost["BF"]),
+            (1-p_bf, state,                  h["penalty"] - cost["BF"])
+        ]
+
+        # ME action: Only works with known vulnerability (k=1), costs 5
+        # if k = 0, p_me = 0, always fails
+        p_me = h["p_ME"] if k == 1 else 0.0
+        P[state][f"ME{i}"] = [
+            (p_me,   next_s(state, i, 1, k), h["value"] - cost["ME"]),
+            (1-p_me, state,                  h["penalty"] - cost["ME"])
+        ]
 # threshold
 threshold = 0.001
 
@@ -74,8 +133,6 @@ lambdaDR = 0.99
 
 # epsilon greedy 80% best, 20% random
 epsilon = 0.2
-
-start_state = "" # TODO fill in 
 
 # init Q(s,a) values to 0
 Q = {}
@@ -132,6 +189,7 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
     # to prevent premature convergence
     stable_count = 0
     required_stable_episodes = 3
+    min_episodes = 500
     
     while True:
         max_change = 0
@@ -172,8 +230,9 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
         else:
             stable_count = 0
 
-        if stable_count >= required_stable_episodes and enough_visits(visits, actions, min_visits=1):
-            print(f"\n *** Converged after {episode} episodes ***")
+        #only check convergence after min_episodes
+        if episode >= min_episodes and stable_count >= required_stable_episodes:
+            print(f"\n*** Converged after {episode} episodes ***")
             break
 
     return Q
