@@ -108,11 +108,11 @@ for state in states:
 
         # BF action: succeeds with p_BF, costs 10
         #success: host is compromised, get value - cost
-        #failure: state unchanged, get penalty - cost
+        #failure: terminal
         p_bf = h["p_BF"]
         P[state][f"BF{i}"] = [
             (p_bf,   next_s(state, i, 1, k), h["value"] - cost["BF"]),
-            (1-p_bf, state,                  h["penalty"] - cost["BF"])
+            (1-p_bf, terminal_state, h["penalty"] - cost["BF"]) #
         ]
 
         # ME action: Only works with known vulnerability (k=1), costs 5
@@ -120,7 +120,7 @@ for state in states:
         p_me = h["p_ME"] if k == 1 else 0.0
         P[state][f"ME{i}"] = [
             (p_me,   next_s(state, i, 1, k), h["value"] - cost["ME"]),
-            (1-p_me, state,                  h["penalty"] - cost["ME"])
+            (1-p_me, terminal_state, h["penalty"] - cost["ME"])
         ]
 # threshold
 threshold = 0.001
