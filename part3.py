@@ -195,7 +195,7 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
     min_episodes = 500
     
     while True:
-        max_change = 0
+        max_change = 0.0
         episode += 1
         print(f"\n*** Episode {episode} ***")
         #start each episode at start state
@@ -238,10 +238,12 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
             print(f"\n*** Converged after {episode} episodes ***")
             break
 
-    return Q
+    return Q, episode
 
 # Run it
-Q = q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold)
+Q, episode_count = q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold)
+
+print(f"\nNumber of episodes: {episode_count}")
 
 print("\n*** Final Q-Values ***")
 for s in states:
