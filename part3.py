@@ -114,10 +114,10 @@ for state in states:
             (p_bf,   next_s(state, i, 1, k), h["value"] - cost["BF"]),
             (1-p_bf, terminal_state, h["penalty"] - cost["BF"]) #
         ]
-
-        # ME action: Only works with known vulnerability (k=1), costs 5
-        # if k = 0, p_me = 0, always fails
-        p_me = h["p_ME"] if k == 1 else 0.0
+        # ME action: always available with probablity p_ME.
+        # Scan does not enable ME, but instead provides information (k bit) which
+        # Could influence learned policy
+        p_me = h["p_ME"]
         P[state][f"ME{i}"] = [
             (p_me,   next_s(state, i, 1, k), h["value"] - cost["ME"]),
             (1-p_me, terminal_state, h["penalty"] - cost["ME"])
@@ -153,6 +153,9 @@ def simulate_transition(state, action, P):
         cumulative += prob
         if r<= cumulative:
             return next_state, reward
+    
+    #fallback for fps
+    return outcomes[-1][1], outcomes[-1][2]
         
 # Epsilon gredy action choice
 def choose_action(state, actions, Q, epsilon):
