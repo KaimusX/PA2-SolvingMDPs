@@ -134,12 +134,12 @@ lambdaDR = 0.99
 # epsilon greedy 80% best, 20% random
 epsilon = 0.2
 
-# init Q(s,a) values to 0
+# init Q(s,a) optimistic initialization encourages exploration
 Q = {}
 for s in states:
     Q[s] = {}
     for a in actions[s]:
-        Q[s][a] = 0.0
+        Q[s][a] = 1.0 if a != "END" else 0.0
 
 # pick an outcome for next state P[s][a] from probablity map
 def simulate_transition(state, action, P):
@@ -234,7 +234,7 @@ def q_learning(states, actions, P, Q, alpha, lambdaDR, epsilon, threshold):
             stable_count = 0
 
         #only check convergence after min_episodes
-        if episode >= min_episodes and stable_count >= required_stable_episodes and enough_visits(visits, actions, min_visits=3):
+        if episode >= min_episodes and stable_count >= required_stable_episodes:
             print(f"\n*** Converged after {episode} episodes ***")
             break
 
